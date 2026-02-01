@@ -1,6 +1,6 @@
 :root {
     --bg-dark: url("https://i.redd.it/7vvhf0lpqd8b1.png");
-    --bg-light: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnsM3L5QZK9-WZ0aBOs0PSzDzljhjkPf8mqA&s");
+    --bg-light: url("https://10wallpaper.com/wallpaper/2560x1600/2107/Blue_Creative_2021_Windows_11_Dynamic_4K_HD_2560x1600.jpg");
 
     --text-dark: white;
     --text-light: black;
@@ -215,4 +215,5 @@ footer {
     padding: 20px;
     background: #111;
     color: white;
+
 }
