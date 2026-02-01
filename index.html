@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="theme-toggle">
+        <span class="icon sun">☀️</span>
+        <input type="checkbox" id="themeSwitch" class="interruptor">
+        <span class="icon moon">🌙</span>
+    </div>
     <header>
         <h1>Lucas Maciel</h1>
 
@@ -56,5 +61,14 @@
     <footer>
         <p>&copy; 2026 Lucas Maciel. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        const switcher = document.getElementById("themeSwitch");
+        const body = document.body;
+
+        switcher.addEventListener("change", () => {
+            body.classList.toggle("light", switcher.checked);
+        })
+    </script>
 </body>
 </html>

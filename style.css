@@ -1,14 +1,79 @@
+:root {
+    --bg-dark: url("https://i.redd.it/7vvhf0lpqd8b1.png");
+    --bg-light: url("/HTML/Images/background\ claro.jpg");
+
+    --text-dark: white;
+    --text-light: black;
+
+    --card-dark: #111;
+    --card-light: #ffff;
+    
+    --accent-dark: #956afa;
+    --accent-light: #2f80ed;
+}
+
 body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url("https://i.redd.it/7vvhf0lpqd8b1.png");
+    background-image: var(--bg-dark);
     background-repeat: no-repeat;
     background-position: center;
-    color: #333;
+    color: var(--text-dark);
     background-size: cover;
     background-attachment: scroll;
     background-color: #ccc;
+    transition: 
+        background-image, 0.6s ease,
+        color 0.4s ease;
+}
+body.light {
+    background-image: var(--bg-light);
+    color: var(--text-light);
+}
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+}
+.theme-toggle .icon {
+    font-size: 18px;
+}
+.interruptor {
+    position: relative;
+    height: 1.5em;
+    width: 3em;
+    cursor: pointer;
+    appearance: none;
+    border-radius: 9999px;
+    background-color: var(--accent-dark);
+    transition: all 0.3s ease;
+}
+body.light .interruptor {
+    background-color: var(--accent-light);
+}
+.interruptor::before{
+    content: "";
+    position: relative;
+    top: -0.05rem;
+    left: -0.1rem;
+    height: 1.6rem;
+    width: 1.6rem;
+    background: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+.interruptor:checked::before{
+    transform: translateY(100%);
+}
+body.light .trabalho,
+body.light .trabalho2 {
+    background: var(--card-light);
+    color: var(--text-light);
 }
 header {
     color: white;
@@ -40,6 +105,9 @@ section h2 {
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+body.light h1 {
+    color: #111;
+}
 .trabalhos {
     display: flex;
     flex-wrap: wrap;
@@ -57,6 +125,12 @@ section h2 {
     font-family: sans-serif;
     font-size: 1.2em;
     position: relative;
+}
+body.light .trabalho {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+body.light .trabalho2 {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 .trabalho a {
     color: #6d04e4;
@@ -77,6 +151,10 @@ section h2 {
     font-family: sans-serif;
     font-size: 1.2em;
     position: relative;
+}
+.trabalho, .trabalho2{
+    background: var(--card-dark);
+    transition: background 0.4s ease, color 0.4s ease;
 }
 /* texto animado*/
 .linha-animada {
@@ -102,19 +180,25 @@ section h2 {
     pointer-events: none;
     background: linear-gradient(
         to bottom,
-        rgba(0,0,0,0) 0%,
-        rgba(0,0,0,0.2) 20%,
-        rgba(0,0,0,0.2) 80%,
-        rgba(0,0,0,0) 100%
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 20%,
+        rgba(0, 0, 0, 0.2) 80%,
+        rgba(0, 0, 0, 0) 100%
     );
+}
+body.light .words::after {
+    background-color: transparent;
 }
 .word {
     display: block;
     height: 1.35em;
     line-height: 1.35em;
     padding-left: 4px;
-    color: #956afa;
+    color: var(--accent-dark);
     animation: linha-spin 4s infinite;
+}
+body.light .word {
+    color: darkblue;
 }
 @keyframes linha-spin {
     10% { transform: translateY(-102%); }
